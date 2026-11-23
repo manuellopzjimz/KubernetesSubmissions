@@ -1,17 +1,15 @@
 # Exercise
 
-Let's get started!
+Create a deployment.yaml for the course project (that you started in Exercise 1.2.)
 
-Create a web server that outputs "Server started in port NNNN" when it is started and deploy it into your Kubernetes cluster. Please make it so that an environment variable PORT can be used to choose the used port. You may call the server todo app since it will, amongst other things, provide the functionality of a todo application pretty soon.
-
-You will not have access to the port when it is running in Kubernetes yet. We will configure the access when we get to networking.
+You won't have access to the port yet but that'll come soon.
 
 # Commands to run this exercise
 
 ## Deploy app into a K8S cluster
 
 ```
-kubectl create deployment todo-app --image=manulopez/todo_app:1.2
+kubectl apply -f manifests/deployment.yaml
 ```
 
 ## Get running pod name
