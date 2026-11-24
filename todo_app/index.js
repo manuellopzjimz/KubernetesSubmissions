@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 
 const DEFAULT_PORT = 3000;
 
@@ -14,6 +15,7 @@ const server = app.listen(port, () => {
 });
 
 app.get("/", (request, response) => {
-  response.send(`Server started in port ${server.address.address().port}`);
+  response.sendFile(path.join(__dirname, "public", "index.html"));
 });
+
 

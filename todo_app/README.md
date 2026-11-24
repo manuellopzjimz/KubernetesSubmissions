@@ -1,8 +1,8 @@
 # Exercise
 
-Create a deployment.yaml for the course project (that you started in Exercise 1.2.)
+Make the project respond something to a GET request sent to the / url of the project. A simple HTML page is good, or you can deploy something more complex, like a single-page application.
 
-You won't have access to the port yet but that'll come soon.
+Use kubectl port-forward to confirm that the project is accessible and works in the cluster by using a browser to access the project.
 
 # Commands to run this exercise
 
@@ -18,9 +18,9 @@ kubectl apply -f manifests/deployment.yaml
 kubectl get pods
 ```
 
-## Get running pod's logs
+## Port forward pod port
 
 ```
-kubectl logs <pod_name>
+kubectl port-forward <pod name> 3000:8080
 ```
 
