@@ -1,10 +1,23 @@
 const { randomUUID } = require("crypto");
-
-const INTERVAL_TO_PRINT_STRING = 5000;
+const express = require("express");
 
 const randomStringOnStartUp = randomUUID();
 
-setInterval(() => {
-  console.info(new Date().toISOString(), randomStringOnStartUp);
-}, INTERVAL_TO_PRINT_STRING);
+const DEFAULT_PORT = 3000;
+
+const app = express();
+const port = process.env.PORT || DEFAULT_PORT;
+
+const server = app.listen(port, () => {
+  console.info(`Server started in port ${server.address().port}`);
+});
+
+app.get("/", (request, response) => {
+  response.send(`${new Date().toISOString()}: ${randomStringOnStartUp}`);
+});
+
+
+
+
+
 
