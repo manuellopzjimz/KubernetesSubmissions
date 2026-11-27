@@ -14,15 +14,11 @@ spec:
     spec:
       volumes: 
         - name: shared-logs
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: count-claim
       containers:
-        - name: log-output-writer
-          image: manulopez/log_output_writer:1.10
-          volumeMounts:
-            - name: shared-logs
-              mountPath: /app/files
-        - name: log-output-reader
-          image: manulopez/log_output_reader:1.10
+        - name: log-output
+          image: manulopez/log_output:1.11
           volumeMounts:
             - name: shared-logs
               mountPath: /app/files
